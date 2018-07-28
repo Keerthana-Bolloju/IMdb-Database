@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Requi#996515 meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <title>Welcome To IMdb</title>
+  </head>
+  <body>
+
+<div class="container">
+  <div class="row">
+   <div class="col-12"> 
+    <h2 class="intro-bg text-center">Welcome To IMdb</h2>     
+   </div>
+  </div>
+</div>
+<div class="container p-t-b-20">
+  <div class="row justify-content-center">    
+    <button type="button" id="search-again" class="btn btn-warning"><a href="index.html">Search Another</a></button> 
+  </div>
+</div>
+
+<div class="container goldenrod" id="search-block">     
+  <div class="row">
+
+    <div class="col-12">
+      <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="title-tab" data-toggle="tab" href="#title" role="tab" aria-controls="title" aria-selected="true">Search By Title</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="id-tab" data-toggle="tab" href="#id" role="tab" aria-controls="id" aria-selected="false">Search By Id</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="titlenyear-tab" data-toggle="tab" href="#titlenyear" role="tab" aria-controls="titlenyear" aria-selected="false">Search By Title & Year</a>
+        </li>
+      </ul>      
+    </div>
+
+
+    <div class="col-12">
+      <div class="tab-content p-t-b-20" id="myTabContent">
+
+        <div class="tab-pane fade show active" id="title" role="tabpanel" aria-labelledby="title-tab">
+          <div class="row justify-content-center">
+            <input type="text" name="titleName" placeholder="Enter The Title" id="titleName">
+            <button type="button" class="btn btn-dark" id="search1">Search</button>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="id" role="tabpanel" aria-labelledby="id-tab">
+          <div class="row justify-content-center">
+            <input type="text" name="idNum" placeholder="Enter The Id" id="idNum">
+            <button type="button" class="btn btn-dark" id="search2">Search</button>
+          </div>  
+        </div>
+
+        <div class="tab-pane fade" id="titlenyear" role="tabpanel" aria-labelledby="titlenyear-tab">
+          <div class="row justify-content-center">
+            <input type="text" name="titleName1" placeholder="Enter The Title" id="titleName1">&nbsp;
+            <input type="text" name="releaseyear" placeholder="Enter The Year" id="releaseyear">
+            <button type="button" class="btn btn-dark" id="search3">Search</button>
+          </div>  
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container p-t-b-20" id="pageloader">
+  <div class="row justify-content-center">
+    <div class="pageloader"></div>
+  </div>
+</div>
+
+<div class="container white p-t-b-20" id="moviedata">
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
+      <h1 class="text-center" id="movieTitle">Title</h1>
+      <h5 class="text-center" id="releaseDate">Released</h5>
+    </div>
+    <div class="col-12 col-md-4">
+      <img src="images/movie.jpg" id="movie-poster" class="img-fluid">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Year :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="year"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Plot :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="plot"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Genre : </h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="genre"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Type : </h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="type"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Runtime : </h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="runtime"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Box Office :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="box-office"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Language :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="language"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Country :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="country"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Website :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="website"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Awards :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="awards"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-1">&nbsp;</div>
+    <div class="col-3 col-md-3">
+      <h6>Response :</h6>
+    </div>
+    <div class="col-9 col-md-7">
+      <h6 id="response"> </h6>
+    </div>
+    <div class="col-12 col-md-1">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+    <div id="accordion">
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Cast & Crew
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Actors :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="actors"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Director :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="director"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Writers :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="writers"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Imdb Details
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>IMDB Id :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="imdbid"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Rating :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="rating"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Voting :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="voting"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-1">&nbsp;</div>
+              <div class="col-3 col-md-3">
+                <h6>Meta-Score :</h6>
+              </div>
+              <div class="col-9 col-md-7">
+                <h6 id="metascore"> </h6>
+              </div>
+              <div class="col-12 col-md-1">&nbsp;</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+</div>
+
+
+<div class="container p-t-b-20" id="error">
+  <div class="row">    
+    <!-- Modal -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>There is no such movie found with this name</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close1" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    <!-- Modal -->             
+  </div>
+  <br/>
+  <div class="row justify-content-center">
+      <button type="button" class="btn btn-warning"><a href="index.html">Back To Home Page</a></button>
+  </div>
+
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
