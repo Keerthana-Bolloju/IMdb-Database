@@ -61,15 +61,15 @@ let getTheMovieDetails = (movie,yearnum) =>{
 		var link = "";
 		if (movie !== undefined && yearnum === 1)
 		{
-			link+=`http://www.omdbapi.com/?t=${movie}&apikey=14571df`
+			link+=`https://www.omdbapi.com/?t=${movie}&apikey=14571df`
 		} 
 		else if (movie !== undefined && yearnum === 2)
 		{
-			link+=`http://www.omdbapi.com/?i=${movie}&apikey=14571df`
+			link+=`https://www.omdbapi.com/?i=${movie}&apikey=14571df`
 		}
 		else if ((movie !== undefined && yearnum !== 1) && (movie !== undefined && yearnum !== 2))
 		{
-			link+=`http://www.omdbapi.com/?t=${movie}&y=${yearnum}&apikey=14571df`
+			link+=`https://www.omdbapi.com/?t=${movie}&y=${yearnum}&apikey=14571df`
 		}
 		else{}
 
